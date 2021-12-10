@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Museum Wayang Banyumas</title>
+		<!--projectdescription--><meta name="description" content="New Museum Wayang Virtual Tour Project"><!--projectdescription-end-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+		
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		
+		<script src="imagedata.js"></script>
+		<script src="jquery.js"></script>
+		<script src="three.min.js"></script>
+		<script src="panolens.min.js"></script>
+		
+		<!-- Insert this line after script imports -->
+		<script>if (window.module) module = window.module;</script>
+		
+		<style>
+		
+			
+						
+			/* SCROLLBAR STYLING */
+			/* width */
+			::-webkit-scrollbar {
+				width: 6px;
+				height: 6px;
+			}
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: inherit; 
+			}
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: #eba576; 
+				transition: background .5s;
+			}
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+				background: #ff6600; 
+			}
+
+
+			html, body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: #000;
+				color: black;
+			}
+
+			a:link, a:visited{
+				color: #bdc3c7;	
+			}
+
+			.fullwrapper{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: black;
+			}
+			
+			#container {
+                width: 100%;
+                height: 100%;
+            }
+			
+			#tmp{
+				position: fixed;
+				top: 0;
+				left: 0; 
+				right: 0;
+				bottom: 0;
+				padding: 100px;
+				background-color: rgba(0,0,0,.5);
+				backdrop-filter: blur(5px);
+				display: none;
+			}
+		</style>
+	</head>
+	<body id="body">
+	    <div id="container" style="color: black;"></div>
+    	<div id="loading" class="fullwrapper" style="display: table; width: 100%; height: 100%;">
+    		<div style="display: table-cell; vertical-align: middle; text-align: center; color: white; font-size: 30px; padding: 50px;">
+    			<!--loadingtext--><p>Please Wait...</p><!--loadingtext-end-->
+    		</div>
+    	</div>
+		
+		<div id="tmp">
+			<div style="width: 100%; height: 100%; overflow: auto; box-sizing: border-box; position: relative;" id="tmpcontent"></div>
+			<div style="position: absolute; top: 0; right: 0; padding: 10px; color: red; font-size: 20px; z-index: 10;" onclick="hideTemp()"><i class="fa fa-times"></i></div>
+		</div>
+
+    	<script>
+			
+            var container = document.querySelector( '#container' );
+			/*panolens*/
+            var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
+			/*panolens-end*/
+			
+			viewer.addUpdateCallback(function(){});
+			
+			/*panoramas*/
+
+var PANO_20210816_093401_2 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210816_093401_2.jpg" );
+						PANO_20210816_093401_2.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210816_093401_2.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210816_093401_2.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210816_093401_20 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210816_093401_20.position.set( 4018.81, -2892.28, 647.78 );
+							PANO_20210816_093401_2.add(infospotPANO_20210816_093401_20);
+
+infospotPANO_20210816_093401_20.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210816_032239118 );
+
+});
+
+viewer.add( PANO_20210816_093401_2 );
+
+var PXL_20210816_032239118 = new PANOLENS.ImagePanorama( "panoramas/PXL_20210816_032239118.PHOTOSPHERE.jpg" );
+						PXL_20210816_032239118.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PXL_20210816_032239118.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PXL_20210816_032239118.addEventListener('click', function(e){
+						});
+
+
+var infospotPXL_20210816_0322391180 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPXL_20210816_0322391180.position.set( -3041.17, -3964.19, -7.14 );
+							PXL_20210816_032239118.add(infospotPXL_20210816_0322391180);
+
+infospotPXL_20210816_0322391180.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_093401_2 );
+
+});
+
+var infospotPXL_20210816_0322391181 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
+							infospotPXL_20210816_0322391181.position.set( 4932.56, -692.70, 314.22 );
+							PXL_20210816_032239118.add(infospotPXL_20210816_0322391181);
+
+infospotPXL_20210816_0322391181.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210906_030158795 );
+
+});
+
+viewer.add( PXL_20210816_032239118 );
+
+var PANO_20210816_094540_11 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210816_094540_11.jpg" );
+						PANO_20210816_094540_11.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210816_094540_11.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210816_094540_11.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210816_094540_110 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210816_094540_110.position.set( -4379.17, -2173.23, 1018.08 );
+							PANO_20210816_094540_11.add(infospotPANO_20210816_094540_110);
+
+infospotPANO_20210816_094540_110.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210906_030158795 );
+
+});
+
+var infospotPANO_20210816_094540_111 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210816_094540_111.position.set( 3891.84, -3112.00, 320.67 );
+							PANO_20210816_094540_11.add(infospotPANO_20210816_094540_111);
+
+infospotPANO_20210816_094540_111.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_093329_1 );
+
+});
+
+viewer.add( PANO_20210816_094540_11 );
+
+var PANO_20210816_093329_1 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210816_093329_1.jpg" );
+						PANO_20210816_093329_1.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210816_093329_1.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210816_093329_1.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210816_093329_10 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210816_093329_10.position.set( 187.47, -1986.94, 4575.68 );
+							PANO_20210816_093329_1.add(infospotPANO_20210816_093329_10);
+
+infospotPANO_20210816_093329_10.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210816_040452995 );
+
+});
+
+var infospotPANO_20210816_093329_11 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
+							infospotPANO_20210816_093329_11.position.set( -934.23, -802.22, -4841.15 );
+							PANO_20210816_093329_1.add(infospotPANO_20210816_093329_11);
+
+infospotPANO_20210816_093329_11.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210816_040452995 );
+
+});
+
+viewer.add( PANO_20210816_093329_1 );
+
+var PXL_20210816_040452995 = new PANOLENS.ImagePanorama( "panoramas/PXL_20210816_040452995.PHOTOSPHERE.jpg" );
+						PXL_20210816_040452995.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PXL_20210816_040452995.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PXL_20210816_040452995.addEventListener('click', function(e){
+						});
+
+
+var infospotPXL_20210816_0404529950 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+							infospotPXL_20210816_0404529950.position.set( -4140.96, -61.44, 2786.87 );
+							PXL_20210816_040452995.add(infospotPXL_20210816_0404529950);
+
+infospotPXL_20210816_0404529950.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_093329_1 );
+
+});
+
+var infospotPXL_20210816_0404529951 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPXL_20210816_0404529951.position.set( 4576.01, -1984.97, 198.48 );
+							PXL_20210816_040452995.add(infospotPXL_20210816_0404529951);
+
+infospotPXL_20210816_0404529951.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210824_105059 );
+
+});
+
+viewer.add( PXL_20210816_040452995 );
+
+var PXL_20210819_023736944 = new PANOLENS.ImagePanorama( "panoramas/PXL_20210819_023736944.PHOTOSPHERE.jpg" );
+						PXL_20210819_023736944.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PXL_20210819_023736944.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PXL_20210819_023736944.addEventListener('click', function(e){
+						});
+
+
+var infospotPXL_20210819_0237369440 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPXL_20210819_0237369440.position.set( -3406.40, -1586.29, -3287.90 );
+							PXL_20210819_023736944.add(infospotPXL_20210819_0237369440);
+
+infospotPXL_20210819_0237369440.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210824_105059 );
+
+});
+
+var infospotPXL_20210819_0237369441 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+							infospotPXL_20210819_0237369441.position.set( -4928.09, -428.75, 677.78 );
+							PXL_20210819_023736944.add(infospotPXL_20210819_0237369441);
+
+infospotPXL_20210819_0237369441.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210824_105331 );
+
+});
+
+viewer.add( PXL_20210819_023736944 );
+
+var PANO_20210816_103912 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210816_103912.jpg" );
+						PANO_20210816_103912.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210816_103912.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210816_103912.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210816_1039120 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210816_1039120.position.set( -4067.11, -2322.61, -1737.06 );
+							PANO_20210816_103912.add(infospotPANO_20210816_1039120);
+
+infospotPANO_20210816_1039120.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210824_105059 );
+
+});
+
+var infospotPANO_20210816_1039121 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+							infospotPANO_20210816_1039121.position.set( 4937.60, -725.07, -144.98 );
+							PANO_20210816_103912.add(infospotPANO_20210816_1039121);
+
+infospotPANO_20210816_1039121.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210824_105331 );
+
+});
+
+var infospotPANO_20210816_1039122 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210816_1039122.position.set( 2452.53, -775.36, 4286.23 );
+							PANO_20210816_103912.add(infospotPANO_20210816_1039122);
+
+infospotPANO_20210816_1039122.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210824_110407 );
+
+});
+
+viewer.add( PANO_20210816_103912 );
+
+var PANO_20210824_105059 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210824_105059.jpg" );
+						PANO_20210824_105059.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210824_105059.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210824_105059.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210824_1050590 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210824_1050590.position.set( 4942.28, -558.31, 432.30 );
+							PANO_20210824_105059.add(infospotPANO_20210824_1050590);
+
+infospotPANO_20210824_1050590.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_103912 );
+
+});
+
+var infospotPANO_20210824_1050591 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210824_1050591.position.set( -1407.10, -1468.31, 4561.64 );
+							PANO_20210824_105059.add(infospotPANO_20210824_1050591);
+
+infospotPANO_20210824_1050591.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210816_040452995 );
+
+});
+
+var infospotPANO_20210824_1050592 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210824_1050592.position.set( 261.84, -1241.49, -4827.18 );
+							PANO_20210824_105059.add(infospotPANO_20210824_1050592);
+
+infospotPANO_20210824_1050592.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210819_023736944 );
+
+});
+
+viewer.add( PANO_20210824_105059 );
+
+var PANO_20210824_105331 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210824_105331.jpg" );
+						PANO_20210824_105331.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210824_105331.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210824_105331.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210824_1053310 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210824_1053310.position.set( -1971.22, -1825.56, 4209.30 );
+							PANO_20210824_105331.add(infospotPANO_20210824_1053310);
+
+infospotPANO_20210824_1053310.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_103912 );
+
+});
+
+var infospotPANO_20210824_1053311 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+							infospotPANO_20210824_1053311.position.set( 1182.58, -1732.81, -4527.81 );
+							PANO_20210824_105331.add(infospotPANO_20210824_1053311);
+
+infospotPANO_20210824_1053311.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210819_023736944 );
+
+});
+
+viewer.add( PANO_20210824_105331 );
+
+var PANO_20210824_110407 = new PANOLENS.ImagePanorama( "panoramas/PANO_20210824_110407.jpg" );
+						PANO_20210824_110407.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PANO_20210824_110407.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PANO_20210824_110407.addEventListener('click', function(e){
+						});
+
+
+var infospotPANO_20210824_1104070 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210824_1104070.position.set( -225.18, -2359.48, -4393.09 );
+							PANO_20210824_110407.add(infospotPANO_20210824_1104070);
+
+infospotPANO_20210824_1104070.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_103912 );
+
+});
+
+var infospotPANO_20210824_1104071 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPANO_20210824_1104071.position.set( 4514.70, -1057.09, 1847.90 );
+							PANO_20210824_110407.add(infospotPANO_20210824_1104071);
+
+infospotPANO_20210824_1104071.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_093401_2 );
+
+});
+
+var infospotPANO_20210824_1104072 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
+							infospotPANO_20210824_1104072.position.set( 4050.69, -51.74, 2926.57 );
+							PANO_20210824_110407.add(infospotPANO_20210824_1104072);
+
+infospotPANO_20210824_1104072.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_094540_11 );
+
+});
+
+viewer.add( PANO_20210824_110407 );
+
+var PXL_20210906_030158795 = new PANOLENS.ImagePanorama( "panoramas/PXL_20210906_030158795.PHOTOSPHERE.jpg" );
+						PXL_20210906_030158795.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PXL_20210906_030158795.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PXL_20210906_030158795.addEventListener('click', function(e){
+						});
+
+
+var infospotPXL_20210906_0301587950 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+							infospotPXL_20210906_0301587950.position.set( -3492.30, -1165.24, -3374.53 );
+							PXL_20210906_030158795.add(infospotPXL_20210906_0301587950);
+
+infospotPXL_20210906_0301587950.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210816_032239118 );
+
+});
+
+var infospotPXL_20210906_0301587951 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+							infospotPXL_20210906_0301587951.position.set( 4937.58, -718.06, 161.21 );
+							PXL_20210906_030158795.add(infospotPXL_20210906_0301587951);
+
+infospotPXL_20210906_0301587951.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210906_031738469 );
+
+});
+
+var infospotPXL_20210906_0301587952 = new PANOLENS.Infospot( 512, hotspotIcons[5].data, true );
+							infospotPXL_20210906_0301587952.position.set( 3506.95, -1655.65, 3150.41 );
+							PXL_20210906_030158795.add(infospotPXL_20210906_0301587952);
+
+infospotPXL_20210906_0301587952.addEventListener('click', function(){
+
+viewer.setPanorama( PANO_20210816_094540_11 );
+
+});
+
+viewer.add( PXL_20210906_030158795 );
+
+var PXL_20210906_031738469 = new PANOLENS.ImagePanorama( "panoramas/PXL_20210906_031738469.PHOTOSPHERE.jpg" );
+						PXL_20210906_031738469.addEventListener('progress', function(e){
+							$("#loading").show();
+						});
+						PXL_20210906_031738469.addEventListener('load', function(e){
+							$("#loading").fadeOut();
+						});
+						PXL_20210906_031738469.addEventListener('click', function(e){
+						});
+
+
+var infospotPXL_20210906_0317384690 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+							infospotPXL_20210906_0317384690.position.set( -3508.75, -3367.82, 1143.55 );
+							PXL_20210906_031738469.add(infospotPXL_20210906_0317384690);
+
+infospotPXL_20210906_0317384690.addEventListener('click', function(){
+
+viewer.setPanorama( PXL_20210906_030158795 );
+
+});
+
+viewer.add( PXL_20210906_031738469 );
+
+$(document).ready(function(){ viewer.setPanorama( PANO_20210816_093401_2 ); });
+
+
+/*panoramas-end*/
+            
+			
+			function hideTemp(){
+				$("#tmp").fadeOut();
+				setTimeout(function(){
+					$("#tmpcontent").html("");
+				},1000);
+			}
+			
+			function showMedia(type, content){
+				switch(type){
+					case 1 :
+						//Image
+						$("#tmpcontent").html("<img src='"+content+"' style='width: 100%;'>");
+						$("#tmp").fadeIn();
+						break;
+					case 2 :
+						//Video
+						$("#tmpcontent").html("<video id='webvideo' controls autoplay style='width: 100%; height: 100%;'><source src='" +content+ "' type='video/mp4'> Your browser does not support the video tag. </video>");
+						$("#tmp").fadeIn();
+						break;
+					case 3 :
+						//Audio
+						$("#tmpcontent").html("<audio controls style='width: 100%;'><source src='"+content+"' type='audio/ogg'>Your browser does not support the audio tag.</audio>");
+						$("#tmp").fadeIn();
+						break;
+					case 4 :
+						//PDF
+						$("#tmpcontent").html("<iframe src='pdfjs/web/viewer.html?file=../../"+content+"' style='width: 100%; height: 100%;'></iframe>");
+						$("#tmp").fadeIn();
+						break;
+				}
+			}
+        </script>
+	</body>
+</html>
